@@ -1,0 +1,27 @@
+[[source]]
+name = "pypi"
+url = "https://pypi.org/simple"
+verify_ssl = true
+
+[dev-packages]
+pylint = "*"
+pydocstyle = "*"
+
+[packages]
+asgiref = "==3.2.10"
+django = "==3.1"
+django-cors-headers = "==3.4.0"
+pillow = "==7.2.0"
+pytz = "==2020.1"
+sqlparse = "==0.3.1"
+djangorestframework = "*"
+djangorestframework-simplejwt = "*"
+psycopg2 = "*"
+djangorestframework-camel-case = "*"
+sendgrid = "*"
+uwsgi = "*"
+requests = "*"
+mailjet-rest = "*"
+
+[requires]
+python_version = "3.8"

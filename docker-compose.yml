@@ -1,0 +1,40 @@
+version: '3'
+
+services:
+  evaxiiweb:
+    container_name: "elearningbo"
+    build:
+      context: .
+    ports:
+      - "5010:5000"
+    depends_on:
+      - evax_ii_db
+    volumes:
+      - ./src:/app/src
+      - ./Pipfile:/app/Pipfile
+      #- ./Pipfile.lock:/app/Pipfile.lock
+    env_file:
+      - ./.env
+  evax_ii_db:
+    image: postgres:12.4
+    environment:
+      POSTGRES_PASSWORD: ${EVAX_II_DB_PASSWORD}
+      POSTGRES_USER: ${EVAX_II_DB_USER}
+      POSTGRES_DB: ${EVAX_II_DB_NAME}
+    volumes:
+      - evax_ii_db:/var/lib/postgresql/data/
+  adminer:
+    image: adminer
+    restart: on-failure:5
+    ports:
+      - 8087:8080
+
+
+networks:
+  default:
+    external:
+      name: flastrukt_net
+
+volumes:
+  evax_ii_db: 
+

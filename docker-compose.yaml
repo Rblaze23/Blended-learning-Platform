@@ -1,0 +1,18 @@
+version: "3"
+
+services:
+  evax_ii_middle_office_front:
+    build:
+      context: .
+    volumes:
+      - ./public/media:/app/public/media
+      - ./public/css:/app/public/css
+      - ./public/plugins:/app/public/plugins
+      - ./src:/app/src
+      - ./public/index.html:/app/public/index.html
+      - ./package.json:/app/package.json
+    env_file:
+      - ./.env
+    ports:
+      - "3017:3000"
+    tty: true

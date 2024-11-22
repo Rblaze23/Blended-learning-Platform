@@ -1,17 +1,52 @@
-Blended Learning Platform
-Overview
-This project is a blended learning platform designed to streamline educational administration and enhance the learning experience for teachers and students. The platform consists of two distinct webpages: one for administrative tasks and the other for user interactions.
+# EVAX 2 Middle_Office
 
-Technologies Used
-Frontend: React, Redux
+## Project Requirements:
 
-Backend: Django REST Framework (DRF)
+In order to get the project running you need to install:
 
-APIs: Used to connect and facilitate data exchange between the administration and user sites
+- [Docker](https://docs.docker.com/get-docker/).
 
-Features
-Administration Page: Manage users, courses, and content.
+#### Docker:
 
-User Page: Access course materials, submit assignments, and interact with teachers.
+Docker is an open platform for developing, shipping, and running applications. Docker enables you to separate your applications from your infrastructure so you can deliver software quickly.
 
-Data Exchange: Seamless data transfer between the administration and user sites via APIs.
+## Setting the Project Locally:
+
+#### Cloning the project:
+
+Once you have all the needed requirements installed, clone the project:
+
+``` bash
+git clone GitURL
+```
+
+#### Configure .env file:
+
+Before you can run the project you need to set the envirment varibles:
+
+``` env
+NODE_ENV=development # development or production
+
+REACT_APP_API_BASE_URL=http://0.0.0.0:5000 # backend base url.
+```
+
+#### Run the Project in development env:
+
+to run the project type:
+
+``` bash
+docker-compose up --build -d
+```
+
+Check 0.0.0.0:3000 on your browser!
+
+
+### Run the Project in production
+
+to build the project type:
+
+``` bash
+docker-compose -f docker-compose.build.yaml up --build -d
+```
+
+That's it..

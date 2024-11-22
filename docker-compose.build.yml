@@ -1,0 +1,40 @@
+version: '3'
+
+services:
+  elearning_db:
+    image: postgres:12.4
+    environment:
+      POSTGRES_PASSWORD: ${EVAX_II_DB_PASSWORD}
+      POSTGRES_USER: ${EVAX_II_DB_USER}
+      POSTGRES_DB: ${EVAX_II_DB_NAME}
+    volumes:
+      - db_build:/var/lib/postgresql/data/
+  
+  adminer:
+    image: adminer
+    restart: on-failure:5
+    ports:
+      - 8087:8080
+
+  elearning_web:
+    container_name: "elearningbo"
+    build:
+      context: .
+      dockerfile: Dockerfile.build
+    ports:
+      - "5010:5000"
+    depends_on:
+      - elearning_db
+    env_file:
+      - ./.env
+    volumes:
+      - ./src:/app/src
+      - ./Pipfile:/app/Pipfile
+
+networks:
+  default:
+    external:
+      name: flastrukt_net
+
+volumes:
+  db_build:
