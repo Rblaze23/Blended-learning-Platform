@@ -1,4 +1,4 @@
-# EVAX 2 Middle_Office
+# Blended
 
 ## Project Requirements:
 
